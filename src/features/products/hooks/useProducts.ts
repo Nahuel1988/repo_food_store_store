@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { productAPI } from '@/features/products/services/productAPI'
-import { ProductFilters } from '@/features/products/types'
+import type { ProductFilters } from '@/features/products/types'
 
 export const useProducts = (filters?: ProductFilters) => {
   return useQuery({

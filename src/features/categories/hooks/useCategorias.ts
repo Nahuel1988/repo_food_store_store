@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { categoriaAPI } from '@/features/products/services/categoriaAPI'
+import { categoriaAPI } from '@/features/categories/services/categoriaAPI'
 
 //Devuelve todas las categorias sin filtro
 export const useCategorias = () => {

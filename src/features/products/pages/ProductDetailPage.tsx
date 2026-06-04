@@ -12,7 +12,7 @@ export const ProductDetailPage = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gray-50 px-6 py-8 max-w-3xl mx-auto">
+      <div className="bg-white rounded-lg shadow-md border-b-4 border-b-orange-400 min-h-screen px-6 py-8 max-w-3xl mx-auto">
 
         {product.imagenes_url.length > 0 && (
             <img 

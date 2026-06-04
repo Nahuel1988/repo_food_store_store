@@ -13,7 +13,7 @@ export const ProductModal = ({ product, onClose }: ProductModalProps) => {
       onClick={onClose} /*Se cierra al clickear el fondo*/
     >
       <div 
-        className="bg-white rounded-xl p-8 max-w-md w-full mx-4 shadow-2xl"
+        className="bg-white rounded-xl p-8 max-w-md w-full mx-4 shadow-2xl border-b-4 border-b-orange-400"
         onClick={(e) => e.stopPropagation()}
       >
 

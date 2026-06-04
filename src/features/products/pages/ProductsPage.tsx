@@ -23,14 +23,14 @@ export const ProductsPage = () => {
 
         <div className='flex gap-5 justify-center mb-10'>
           <button onClick={() => setCategoriaSeleccionada(undefined)}
-            className='px-4 py-2 rounded border hover:border-transparent hover:bg-orange-400 hover:shadow-orange-400 hover:text-white transition-all'>
+            className='px-4 py-2 rounded border hover:border-transparent hover:bg-orange-400 hover:shadow-[0_0_15px_rgba(251,146,60,0.6)] hover:text-white transition-all'>
             Todos
           </button>
           {categorias?.map((categoria) => (
             <button
               key={categoria.id}
               onClick={() => setCategoriaSeleccionada(categoria.id)}
-              className='px-4 py-2 rounded border hover:border-transparent hover:bg-orange-400 hover:shadow-orange-400 hover:text-white transition-all'
+              className='px-4 py-2 rounded border hover:border-transparent hover:bg-orange-400 hover:shadow-[0_0_15px_rgba(251,146,60,0.6)] hover:text-white transition-all'
             >
               {categoria.nombre}
             </button>

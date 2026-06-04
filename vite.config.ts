@@ -3,9 +3,15 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(),],
+  plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      '/usuarios': 'http://127.0.0.1:8000',
+      '/productos': 'http://127.0.0.1:8000',
+      '/categorias': 'http://127.0.0.1:8000',
+    }
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

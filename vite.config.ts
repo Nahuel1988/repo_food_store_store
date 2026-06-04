@@ -10,6 +10,7 @@ export default defineConfig({
       '/usuarios': 'http://127.0.0.1:8000',
       '/productos': 'http://127.0.0.1:8000',
       '/categorias': 'http://127.0.0.1:8000',
+      '/pedidos': 'http://127.0.0.1:8000',
     }
   },
   resolve: {

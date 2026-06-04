@@ -1,10 +1,9 @@
 import axios from 'axios'
 import type { Product, ProductFilters } from '@/features/products/types'
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
-
 const api = axios.create({
-  baseURL: API_BASE,
+  baseURL: '',
+  withCredentials: true,
 })
 
 export const productAPI = {

@@ -1,0 +1,19 @@
+import axios from 'axios'
+import type { CreatePedidoDTO } from '@/features/cart/types'
+
+const api = axios.create({
+  baseURL: '',
+  withCredentials: true,
+})
+
+export const pedidoAPI = {
+  create: async (pedido: CreatePedidoDTO) => {
+    const response = await api.post('/pedidos/', pedido)
+    return response.data
+  },
+
+  getFormasPago: async () => {
+    const response = await api.get<{ data: { codigo: string; descripcion: string; habilitado: boolean }[]; total: number }>('/pedidos/formas-pago/')
+    return response.data.data
+  },
+}

@@ -1,10 +1,5 @@
-import axios from 'axios'
 import type { CreatePedidoDTO } from '@/features/cart/types'
-
-const api = axios.create({
-  baseURL: '',
-  withCredentials: true,
-})
+import { api } from '@/shared/api'
 
 export const pedidoAPI = {
   create: async (pedido: CreatePedidoDTO) => {

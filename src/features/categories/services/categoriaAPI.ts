@@ -1,10 +1,5 @@
-import axios from "axios"
 import type { Categoria } from "../types"
-
-const api = axios.create({
-  baseURL: '',
-  withCredentials: true,
-})
+import { api } from "@/shared/api"
 
 export const categoriaAPI = {
     //Obtiene todas las categorias

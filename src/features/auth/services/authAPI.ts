@@ -1,12 +1,5 @@
-import axios from 'axios'
 import type { User } from '@/features/auth/types'
-
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3000'
-
-const api = axios.create({
-  baseURL: '',
-  withCredentials: true,
-})
+import { api } from '@/shared/api'
 
 export const authAPI = {
   login: async (email: string, password: string) => {
@@ -14,21 +7,21 @@ export const authAPI = {
     formData.append('username', email)
     formData.append('password', password)
 
-    await api.post('/usuarios/api/v1/auth/token', formData, {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    await api.post('/api/v1/auth/token', formData, {
+      
     })
   },
 
   register: async (data: { nombre: string; apellido: string; email: string; password: string; celular: string }) => {
-    await api.post('/usuarios/api/v1/auth/register', data)
+    await api.post('/api/v1/auth/register', data)
   },
 
   logout: async () => {
-    await api.post('/usuarios/api/v1/auth/logout')
+    await api.post('/api/v1/auth/logout')
   },
 
   me: async (): Promise<User> => {
-    const response = await api.get<User>('/usuarios/api/v1/auth/me')
+    const response = await api.get<User>('/api/v1/auth/me')
     return response.data
   },
 }

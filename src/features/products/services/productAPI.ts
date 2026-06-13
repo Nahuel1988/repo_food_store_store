@@ -1,10 +1,5 @@
-import axios from 'axios'
 import type { Product, ProductFilters } from '@/features/products/types'
-
-const api = axios.create({
-  baseURL: '',
-  withCredentials: true,
-})
+import { api } from '@/shared/api'
 
 export const productAPI = {
   // Obtener todos los productos

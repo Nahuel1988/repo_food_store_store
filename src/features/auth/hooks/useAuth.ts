@@ -1,8 +1,10 @@
 import { authAPI } from '@/features/auth/services/authAPI'
 import { useAppStore } from '@/store/useAppStore'
+import { useQueryClient } from '@tanstack/react-query'
 
 export const useAuth = () => {
   const { user, setUser } = useAppStore()
+  const queryClient = useQueryClient()
 
   const login = async (email: string, password: string) => {
     await authAPI.login(email, password)
@@ -13,6 +15,7 @@ export const useAuth = () => {
   const logout = async () => {
     await authAPI.logout()
     setUser(null)
+    queryClient.clear()
   }
 
   const loadUser = async () => {

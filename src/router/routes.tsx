@@ -4,6 +4,7 @@ import { ProductDetailPage } from '@/features/products/pages'
 import { CartPage } from '@/features/cart/pages/CartPage'
 import { LoginPage } from '@/features/auth/pages/LoginPage'
 import { RegisterPage } from '@/features/auth/pages/RegisterPage'
+import { OrdersPage } from '@/features/orders/pages/OrdersPage'
 
 export const AppRoutes = () => {
   return (
@@ -13,6 +14,7 @@ export const AppRoutes = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path='/carrito' element={<CartPage/>}/>
+      <Route path='/pedidos' element={<OrdersPage/>}/>
     </Routes>
   )
 }

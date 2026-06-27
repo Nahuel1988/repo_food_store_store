@@ -2,11 +2,14 @@ import { useParams } from 'react-router-dom'
 import { useProduct } from '@/features/products/hooks'
 import { useCartStore } from '@/features/cart/store/useCartStore'
 import { Header } from '@/shared/components/Header'
+import { useToast } from '@/shared/hooks/useToast'
+import { Toast } from '@/shared/components/Toast'
 
 export const ProductDetailPage = () => {
   const { id } = useParams()
   const { data: product, isLoading, error } = useProduct(id ?? '')
   const { addItem } = useCartStore()
+  const { visible, message, showToast } = useToast()
 
   if (isLoading) return <div>Cargando producto...</div>
   if (error || !product) return <div>Producto no encontrado</div>
@@ -19,6 +22,7 @@ export const ProductDetailPage = () => {
       imagen: product.imagenes_url[0] ?? '',
       cantidad: 1,
     })
+    showToast(`${product.nombre} agregado al carrito`)
   }
 
   return (
@@ -44,6 +48,7 @@ export const ProductDetailPage = () => {
         >
           Agregar al carrito
         </button>
+        <Toast message={message} visible={visible} />
       </div>
     </>
   )

@@ -1,6 +1,8 @@
 import type { Product } from '@/features/products/types'
 import { useCartStore } from '@/features/cart/store/useCartStore'
 import { Link } from 'react-router-dom'
+import { useToast } from '@/shared/hooks/useToast'
+import { Toast } from '@/shared/components/Toast'
 
 interface ProductModalProps {
   product: Product
@@ -9,6 +11,7 @@ interface ProductModalProps {
 
 export const ProductModal = ({ product, onClose }: ProductModalProps) => {
   const { addItem } = useCartStore()
+  const { visible, message, showToast } = useToast()
 
   const handleAddToCart = () => {
     addItem({
@@ -18,6 +21,7 @@ export const ProductModal = ({ product, onClose }: ProductModalProps) => {
       imagen: product.imagenes_url[0] ?? '',
       cantidad: 1,
     })
+    showToast(`${product.nombre} agregado al carrito`)
   }
 
   return (
@@ -60,6 +64,7 @@ export const ProductModal = ({ product, onClose }: ProductModalProps) => {
           </div>
         </div>
       </div>
+      <Toast message={message} visible={visible} />
     </div>
   )
 }

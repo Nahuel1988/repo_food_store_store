@@ -3,10 +3,11 @@ import { Header } from '@/shared/components/Header'
 import { useAppStore } from '@/store/useAppStore'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
+import { OrderCard } from '@/features/orders/components/OrderCard'
 
 export const OrdersPage = () => {
   const { user } = useAppStore()
-  const { data: orders, isLoading } = useOrders()
+  const { data: orders, isLoading, isError } = useOrders()
   const navigate = useNavigate()
 
   useEffect(() => { //redirige a /login si el usuario no esta logueado
@@ -14,6 +15,7 @@ export const OrdersPage = () => {
   }, [user, navigate])
 
   if (isLoading) return <div>Cargando pedidos...</div>
+  if (isError) return <div>Error al cargar pedidos.</div>
 
   return (
     <>
@@ -27,21 +29,7 @@ export const OrdersPage = () => {
 
         <div className="flex flex-col gap-4">
           {orders?.map(order => (
-            <div key={order.id} className="bg-white rounded-xl shadow-md p-6 border-b-4 border-b-orange-400">
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-bold text-gray-800">Pedido #{order.id}</span>
-                <span className="text-sm bg-orange-100 text-orange-600 px-3 py-1 rounded-full font-medium">
-                  {order.estado_codigo}
-                </span>
-              </div>
-              <div className="text-sm text-gray-500 flex flex-col gap-1">
-                <span>Forma de pago: {order.forma_pago_codigo}</span>
-                <span>Subtotal: ${order.subtotal}</span>
-                <span>Descuento: ${order.descuento}</span>
-                <span className="font-bold text-gray-700">Total: ${order.total}</span>
-                {order.notas && <span>Notas: {order.notas}</span>}
-              </div>
-            </div>
+            <OrderCard key={order.id} order={order}/>
           ))}
         </div>
       </div>

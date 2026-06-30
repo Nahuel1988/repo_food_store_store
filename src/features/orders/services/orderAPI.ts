@@ -3,7 +3,7 @@ import type { Order } from '@/features/orders/types'
 
 export const orderAPI = {
   getAll: async () => {
-    const response = await api.get<{ data: Order[]; total: number }>('/pedidos/')
-    return response.data.data
+    const response = await api.get<Order[]>('/pedidos_websocket/api/v1/pedidos')
+    return response.data
   },
 }

@@ -7,7 +7,6 @@ export interface CartItem {
 }
 
 export interface CreatePedidoDTO {
-  usuario_id: number
   direccion_id: number
   forma_pago_codigo: string
   notas: string

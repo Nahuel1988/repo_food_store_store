@@ -3,7 +3,7 @@ import { api } from '@/shared/api'
 
 export const pedidoAPI = {
   create: async (pedido: CreatePedidoDTO) => {
-    const response = await api.post('/pedidos/', pedido)
+    const response = await api.post('/pedidos_websocket/api/v1/pedidos', pedido)
     return response.data
   },
 

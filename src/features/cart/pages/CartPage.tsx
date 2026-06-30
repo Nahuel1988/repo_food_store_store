@@ -38,7 +38,6 @@ export const CartPage = () => {
     setError(null)
     try {
       await pedidoAPI.create({
-        usuario_id: usuario.id,
         direccion_id: direccionId,
         forma_pago_codigo: formaPago,
         notas,
